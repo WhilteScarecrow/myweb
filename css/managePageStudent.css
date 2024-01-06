@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "阿里灵动体";
+    src: url("../fonts/AlimamaAgileVF-Thin.woff2");
+    font-display: swap;
+} 
+
+.nav {
+    display: block;
+    height: 50px;
+    box-shadow: gray 0 0 10px 0;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    font-family: "阿里灵动体";
+    flex-direction: row-reverse;
+}
+
+         
+.btn-grad {
+    font-size: 18px;
+    background-image: linear-gradient(to right, #606c88 0%, #3f4c6b  51%, #606c88  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 0;
+    height: 80%;
+    line-height: 80%;
+    position: relative;
+    margin: 5px 10px 5px 10px;
+    /* left: 90%; */
+    /* max-width: 200px; */
+  }
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }

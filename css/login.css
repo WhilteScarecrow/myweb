@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "阿里灵动体";
+    src: url("../fonts/AlimamaAgileVF-Thin.woff2");
+    font-display: swap;
+} 
+
+input::placeholder {
+    font-family: "阿里灵动体";
+}
+body {
+    font-family: "阿里灵动体";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://mail-activity.nosdn.127.net/81f04801-a455-463d-a098-6e1e28d6611e);
+}
+#inner {
+    background-image: none;
+}
+#loginPanel {
+    height: 600px;
+    width: 450px;
+    background: radial-gradient(circle, #F5F5F5, #f3f3f3, #f0f0f0, #fefefe, #fcfcfc);
+    box-shadow: 0 0 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+         
+.btn-grad {
+    background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB  51%, #B993D6  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+input {
+    display: block;
+}
+
+#radio-group * {
+    display: inline;
+}
+
+#radio-group label {
+    position: relative;
+    right: 20px;
+    bottom: 10px;
+}
+
+#logo {
+    margin: 10px 0 50px 0;
+}
+input {
+    margin: 0 20px 0 20px;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+#fileds div {
+    border-bottom: solid 2px gray;
+    margin: 30px 0 20px 0;
+}
+#fileds div:hover, #fields div:focus {
+    border-bottom: solid 2px rgb(117, 141, 256);
+}
+#title {
+    font-size: 28px;
+    text-align: center;
+}
+#sub_tilte {
+    font-size: 20px;
+}
+#login-btn {
+    /* color: white; */
+    margin: 10px 0 30px 0;
+    font-size: 22px;
+    height: 8%;
+    line-height: 8%;
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 1px 1px 2px;
+}
+/* #login-btn:hover {
+    background: radial-gradient(circle,rgb(117,200,255) , rgb(117, 161, 255),rgb(117,141,255));
+} */
+#link a {
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: gray;
+}
+a:hover {
+    color: rgb(117,141,255);
+}
+#fileds svg {
+    float: left;
+}

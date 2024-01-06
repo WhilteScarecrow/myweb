@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loginPanel</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div id="loginPanel">
+        <div id="logo">
+            <svg t="1695541083274" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2792" width="128" height="128"><path d="M512 537.6a230.4 230.4 0 1 1 0-460.8 230.4 230.4 0 0 1 0 460.8z m0-51.2a179.2 179.2 0 1 0 0-358.4 179.2 179.2 0 0 0 0 358.4z" fill="#758DFF" p-id="2793"></path><path d="M947.2 921.6a25.6 25.6 0 1 1-51.2 0 382.464 382.464 0 0 0-101.7344-260.4032 25.6 25.6 0 1 1 37.5808-34.7136A433.664 433.664 0 0 1 947.2 921.6zM512 486.4a25.6 25.6 0 1 1 0 51.2A384 384 0 0 0 128 921.6a25.6 25.6 0 1 1-51.2 0A435.2 435.2 0 0 1 512 486.4z" fill="#758DFF" p-id="2794"></path></svg>
+        </div>
+        <div id="title">LOGIN</div>
+        <div id="sub_title">学生管理</div>
+        <div id="fileds">
+            <div>
+                <svg t="1695544160749" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4879" width="32" height="28"><path d="M893.842 217.557H130.159c-16.261 0-29.443 13.182-29.443 29.443v530c0 16.261 13.182 29.443 29.443 29.443h763.683c16.261 0 29.443-13.183 29.443-29.443V247c0-16.261-13.182-29.443-29.443-29.443z m-85.584 58.886L512 507.651 215.742 276.443h592.516zM159.602 747.557v-440.23l334.283 260.885A29.4 29.4 0 0 0 512 574.443a29.4 29.4 0 0 0 18.115-6.231l334.283-260.884v440.229H159.602z" fill="#bfbfbf" p-id="4880"></path></svg>
+                <input id="input_name" type="text" name="user-name" placeholder="用户名">
+            </div>
+            <div>
+                <svg t="1695544974855" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6585" width="32" height="28"><path d="M725.4 928.3H299.7c-88 0-159.6-71.6-159.6-159.6V555.8c0-88 71.6-159.6 159.6-159.6h425.7c88 0 159.6 71.6 159.6 159.6v212.8c0 88.1-71.6 159.7-159.6 159.7zM299.7 460c-52.8 0-95.8 43-95.8 95.8v212.8c0 52.8 43 95.8 95.8 95.8h425.7c52.8 0 95.8-43 95.8-95.8V555.8c0-52.8-43-95.8-95.8-95.8H299.7z" fill="#bfbfbf" p-id="6586"></path><path d="M778.6 406.8h-63.9c0-110.9-90.2-244.8-202.2-244.8S310.3 296 310.3 406.8h-63.9c0-142.7 116.2-308.6 266.1-308.6s266.1 165.9 266.1 308.6z" fill="#bfbfbf" p-id="6587"></path></svg>
+                <input id="input_password" type="password" name="password" placeholder="密码">
+            </div>
+        </div>
+        <div id="radio-group">
+            <input type="radio" id="login-checkbox-normal" name="login-type" value="common" checked>
+            <label for="login-checkbox-normal">普通用户</label>
+            <input type="radio" id="login-checkbox-administrators" value="admin" name="login-type">
+            <label for="login-checkbox-administrators">管理员登录</label>
+        </div>
+        <button id="login-btn" class="btn-grad" onclick="login()">登录</button>
+        <div class="link"><a href="#">忘记密码?</a></div>
+    </div>
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        function login() {
+            let no_read = $("#input_name").val();
+            let password_read = $("#input_password").val();
+
+            let val=$('input:radio[name="login-type"]:checked').val();
+
+            if(val == "admin") {
+                //管理账户登录
+                $.ajax({
+                    url: "api/login/admin",
+                    method: "post",
+                    data: {
+                        username: no_read,
+                        password: password_read
+                    }
+                }).done(function (rs) {
+                    
+                    if (rs.data >= 0) {
+                        window.location.href = "/iframe.html";
+                    } else {
+                        alert("用户名或密码错误");
+                    }
+                })
+            }
+            else {
+                $.ajax({
+                    url: "api/login/common",
+                    method: "post",
+                    data: {
+                        username: no_read,
+                        password: password_read
+                    }
+                }).done(function (rs) {
+                    
+                    if (rs.data >= 0) {
+                        window.location.href = "/zcommon/iframe.html";
+                    } else {
+                        alert("用户名或密码错误");
+                    }
+                })
+            }
+        }
+    </script>
+</body>
+</html>
